@@ -4,6 +4,7 @@ use std::sync::OnceLock;
 
 use tauri::{AppHandle, WebviewWindowBuilder};
 use tauri_plugin_cli::CliExt;
+use tauri_plugin_window_state::StateFlags;
 
 struct Config {
     pub kiosk: bool,
@@ -15,7 +16,11 @@ static CONFIG: OnceLock<Config> = OnceLock::new();
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .plugin(tauri_plugin_window_state::Builder::new().build())
+        .plugin(
+            tauri_plugin_window_state::Builder::new()
+                .with_state_flags(StateFlags::POSITION)
+                .build(),
+        )
         .plugin(tauri_plugin_cli::init())
         .plugin(tauri_plugin_opener::init())
         .setup(|app| {
