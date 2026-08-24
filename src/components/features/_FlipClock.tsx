@@ -8,7 +8,7 @@ function FlipClock(options: FlipClockThemeOptions) {
   useEffect(() => {
     const instance = flipClock({
       parent: clockRef.current,
-      face: clock(),
+      face: clock({ format: '[HH]:[mm]:[ss][A]' }),
       theme: theme({
         dividers: ':',
         css: css({
