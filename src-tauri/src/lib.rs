@@ -38,7 +38,7 @@ pub fn run() {
                 dbg!("{:?}", &kiosk);
 
                 if kiosk {
-                    config.height = config.height - 39.59;
+                    config.height = config.height - 39.58 - 5.0;
                 }
             }
 

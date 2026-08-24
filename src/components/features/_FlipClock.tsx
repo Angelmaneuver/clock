@@ -12,7 +12,7 @@ function FlipClock(options: FlipClockThemeOptions) {
       theme: theme({
         dividers: ':',
         css: css({
-          fontSize: '3rem',
+          fontSize: '2rem',
         }),
 
         ...options,
