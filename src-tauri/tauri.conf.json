@@ -1,59 +1,56 @@
 {
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "clock",
+  "version": "0.1.0",
+  "identifier": "angelmaneuver.clock",
   "build": {
-    "beforeDevCommand": "pnpm dev",
-    "beforeBuildCommand": "pnpm build",
-    "devPath": "http://localhost:1420",
-    "distDir": "../dist"
+    "beforeDevCommand": "bun run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "bun run build",
+    "frontendDist": "../dist"
   },
-  "package": {
-    "productName": "wallpaper-clock",
-    "version": "0.0.1"
-  },
-  "tauri": {
-    "allowlist": {
-      "all": false,
-      "window": {
-        "maximize": true,
-        "minimize": true,
-        "unmaximize": true,
-        "unminimize": true,
-        "show": true,
-        "hide": true,
-        "close": true,
-        "startDragging": true
-      },
-      "http": {
-        "all": true,
-        "request": true,
-        "scope": ["http://**", "https://**"]
-      },
-      "shell": {
-        "all": false,
-        "open": true
-      }
-    },
+  "app": {
     "windows": [
       {
-        "decorations": false
+        "title": "Clock",
+        "create": false,
+        "width": 490,
+        "height": 133,
+        "decorations": false,
+        "hiddenTitle": true,
+        "skipTaskbar": true,
+        "transparent": true,
+        "shadow": false,
+        "resizable": false,
+        "acceptFirstMouse": true
       }
     ],
+    "macOSPrivateApi": true,
     "security": {
       "csp": null
-    },
-    "bundle": {
-      "active": true,
-      "targets": "all",
-      "identifier": "angelmaneuver.wallpaper-clock",
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ],
-      "macOS": {
-        "exceptionDomain": "qnap.cosmos"
-      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+  "plugins": {
+    "cli": {
+      "description": "Clocks Configurations",
+      "args": [
+        {
+          "name": "kiosk",
+          "short": "k",
+          "description": "Launch the app in kiosk mode"
+        }
+      ]
     }
   }
 }
