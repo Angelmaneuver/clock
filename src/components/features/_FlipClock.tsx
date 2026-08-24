@@ -1,7 +1,8 @@
+import type { FlipClockThemeOptions } from 'flipclock';
 import { clock, css, flipClock, theme } from 'flipclock';
 import { useEffect, useRef } from 'react';
 
-function FlipClock(options: FlipClockThemeProps) {
+function FlipClock(options: FlipClockThemeOptions) {
   const clockRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -18,7 +19,9 @@ function FlipClock(options: FlipClockThemeProps) {
       }),
     });
 
-    return () => instance.unmount();
+    return () => {
+      instance.unmount();
+    };
   }, [options]);
 
   return <section ref={clockRef} />;

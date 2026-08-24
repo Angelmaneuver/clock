@@ -11,8 +11,8 @@ function Window({
   children,
   ...props
 }: JSX.IntrinsicElements['main'] & {
-  label: string;
-  reload: () => Promise<void>;
+  label?: string;
+  reload: () => void;
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isDragging, setIsDragging] = useState(false);

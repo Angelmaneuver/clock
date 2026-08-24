@@ -77,7 +77,7 @@
             "--no-default-features",
           ],
         },
-        "args": ["-k"],
+        // "args": ["-k"],
         // task for the `beforeDevCommand` if used, must be configured in `.vscode/tasks.json`
         "preLaunchTask": "ui:dev",
       },
