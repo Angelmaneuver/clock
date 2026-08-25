@@ -42,7 +42,11 @@ pub fn run() {
                 }
             }
 
-            WebviewWindowBuilder::from_config(app.handle(), &config)?.build()?;
+            let window = WebviewWindowBuilder::from_config(app.handle(), &config)?.build()?;
+
+            if kiosk {
+                window.set_ignore_cursor_events(true)?;
+            }
 
             CONFIG.set(Config { kiosk }).ok();
 
